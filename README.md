@@ -1,0 +1,1 @@
+This repo was created for learning and practising next js.

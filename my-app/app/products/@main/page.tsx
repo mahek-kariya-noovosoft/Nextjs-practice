@@ -1,8 +1,8 @@
 // app/products/@main/page.tsx
-import { delay } from "@/utils/delay";
+import {delay} from "@/utils/delay";
 
 export default async function MainProducts() {
-    await delay(4000); // ⏳ 4 seconds delay (server-side)
+    await delay(1000); // ⏳ 4 seconds delay (server-side)
 
     return (
         <div>

@@ -1,21 +1,20 @@
-// ProductClient.tsx
 "use client";
 
 import {useRouter} from "next/navigation";
+import {ReactNode} from "react";
 
-type Props = { productId: string; productName: string };
+type Props = {
+    details: ReactNode;
+};
 
-export default function ProductClient({productId, productName}: Props) {
+export default function ProductClient({details}: Props) {
     const router = useRouter();
 
     return (
         <div
             style={{
                 position: "fixed",
-                top: 0,
-                left: 0,
-                width: "100vw",
-                height: "100vh",
+                inset: 0,
                 background: "rgba(0,0,0,0.5)",
                 display: "flex",
                 justifyContent: "center",
@@ -30,8 +29,9 @@ export default function ProductClient({productId, productName}: Props) {
                     minWidth: 300,
                 }}
             >
-                <h2>{productName}</h2>
-                <p>ID: {productId}</p>
+                {/* ✅ JSX BUILT ON SERVER, RENDERED ON CLIENT */}
+                {details}
+
                 <button onClick={() => router.back()}>Close</button>
             </div>
         </div>

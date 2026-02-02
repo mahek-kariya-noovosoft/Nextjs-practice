@@ -1,11 +1,12 @@
 import Link from "next/link";
 import "./products.css";
 
-export default function ProductsPage() {
-    const products = Array.from({length: 10}, (_, i) => ({
-        id: (i + 1).toString(),
-        name: `Product ${i + 1}`,
-    }));
+export default async function ProductsPage() {
+    const res = await fetch('http://localhost:3000/api/products', {
+        cache: 'no-store', // always fresh
+    })
+
+    const products: { id: number; name: string }[] = await res.json()
 
     return (
         <div className="products-page">

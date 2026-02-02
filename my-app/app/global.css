@@ -5,17 +5,20 @@
 body {
     margin: 0;
     font-family: system-ui, sans-serif;
+    height: 100vh;
 }
 
 /* THEMES */
 [data-theme='light'] {
     background: #f9fafb;
     color: #111827;
+    height: 100vh;
 }
 
 [data-theme='dark'] {
     background: #0f172a;
     color: #e5e7eb;
+    height: 100vh;
 }
 
 /* NAV */

@@ -1,16 +1,24 @@
 import Link from 'next/link'
+import {ThemeProvider} from './theme-provider'
+import ThemeToggle from './theme-toggle'
+import './global.css'
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function Layout({children}: { children: React.ReactNode }) {
     return (
-        <html>
+        <html lang="en">
         <body>
-        <nav>
-            {/* Prefetched when the link is hovered or enters the viewport */}
-            <Link href="/blog">Blog</Link>
-            {/* No prefetching */}
-            <a href="/contact">Contact</a>
-        </nav>
-        {children}
+        <ThemeProvider>
+            <nav className="nav">
+                <div className="nav-links">
+                    <Link href="/">Home</Link>
+                    <Link href="/products">Products</Link>
+                    <Link href="/count">Count</Link>
+                </div>
+                <ThemeToggle/>
+            </nav>
+
+            <main className="container">{children}</main>
+        </ThemeProvider>
         </body>
         </html>
     )

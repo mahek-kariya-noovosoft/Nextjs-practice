@@ -1,4 +1,5 @@
 import Link from "next/link";
+import "../products.css";
 
 export default function InfoLayout({
                                        children,
@@ -7,13 +8,13 @@ export default function InfoLayout({
 }) {
     return (
         <div>
-            <nav style={{display: "flex", gap: 12}}>
+            <nav className="info-nav">
                 <Link href="/products">Overview</Link>
                 <Link href="/products/reviews">Reviews</Link>
                 <Link href="/products/specs">Specs</Link>
             </nav>
 
-            <div style={{marginTop: 12}}>{children}</div>
+            <div>{children}</div>
         </div>
     );
 }

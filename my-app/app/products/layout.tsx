@@ -2,6 +2,7 @@
 
 import {useParams} from "next/navigation";
 import React from "react";
+import "./products.css";
 
 export default function ProductsLayout({
                                            main,
@@ -18,21 +19,20 @@ export default function ProductsLayout({
     const productId = params?.productId;
 
     return (
-        <div style={{display: "flex", gap: 20}}>
-            <div style={{flex: 3}}>
-                <p>Layout sees productId: {productId}</p>
+        <div className="products-layout">
+            <div className="products-main">
+                <p style={{fontSize: 14, opacity: 0.7}}>
+                    Layout sees productId: {productId}
+                </p>
 
                 {main}
 
-                {/* TAB SLOT */}
-                <div style={{marginTop: 20, borderTop: "1px solid #ccc"}}>
-                    {info}
-                </div>
+                <div className="info-tabs">{info}</div>
 
                 {children}
             </div>
 
-            <div style={{flex: 1}}>{sidebar}</div>
+            <aside className="products-sidebar">{sidebar}</aside>
         </div>
     );
 }

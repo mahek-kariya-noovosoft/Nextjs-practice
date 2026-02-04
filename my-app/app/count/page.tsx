@@ -1,14 +1,16 @@
 'use client'
-
-import {useState} from 'react'
+import {useActionState} from 'react'
+import {increment} from '../actions/counter'
 
 export default function Counter() {
-    const [count, setCount] = useState(0)
+    const [count, incrementAction, isPending] =
+        useActionState(increment, 0)
 
     return (
-        <div>
-            <p>{count} likes</p>
-            <button onClick={() => setCount(count + 1)}>Click me</button>
-        </div>
+        <form action={incrementAction}>
+            <button disabled={isPending}>
+                {isPending ? 'Updating...' : `Count: ${count}`}
+            </button>
+        </form>
     )
 }

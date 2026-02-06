@@ -2,36 +2,29 @@
 
 import {useDispatch, useSelector} from "react-redux"
 import type {RootState, AppDispatch} from "@/store"
-import {login, logout} from "@/store/userSlice"
-import Link from "next/link"
+import {loginUserAsync, logout} from "@/store/userSlice"
 
-export default function Page() {
+export default function ThunkDemo() {
     const user = useSelector((state: RootState) => state.user)
     const dispatch = useDispatch<AppDispatch>()
 
     return (
         <div style={{padding: 30}}>
+            <h3>Async Thunk Demo</h3>
+
+            {user.loading && <p>Logging in...</p>}
+
             <p>
                 {user.isLoggedIn ? `Hi ${user.name}` : "Not logged in"}
             </p>
 
-            <button onClick={() => dispatch(login("Mahek"))}>
-                Login (sync)
+            <button onClick={() => dispatch(loginUserAsync("Mahek"))}>
+                Login (async)
             </button>
 
             <button onClick={() => dispatch(logout())}>
                 Logout
             </button>
-
-            <hr style={{margin: "20px 0"}}/>
-
-            <Link href="/thunk-demo">
-                Go to async thunk demo
-            </Link>
-            <br/>
-            <Link href="/counter">
-                Go to Counter Page
-            </Link>
         </div>
     )
 }

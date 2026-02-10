@@ -1,5 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit'
 import type {PayloadAction} from '@reduxjs/toolkit'
+import {AppDispatch, RootState} from "@/store/index";
 
 export interface CounterState {
     value: number
@@ -28,6 +29,17 @@ export const counterSlice = createSlice({
         },
     },
 })
+
+export const incrementIfOdd =
+    () => (dispatch: AppDispatch, getState: () => RootState) => {
+
+        const current = getState().counter.value
+
+        if (current % 2 === 1) {
+            dispatch(increment())
+        }
+    }
+
 
 // Action creators are generated for each case reducer function
 export const {increment, decrement, incrementByAmount} = counterSlice.actions

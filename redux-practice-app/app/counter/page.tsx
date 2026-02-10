@@ -1,7 +1,7 @@
 "use client"
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "@/store";
-import {decrement, increment} from "@/store/counterSlice";
+import {decrement, increment, incrementIfOdd} from "@/store/counterSlice";
 
 export default function Page() {
     const count = useSelector((state: RootState) => state.counter.value)
@@ -21,6 +21,12 @@ export default function Page() {
                     onClick={() => dispatch(decrement())}
                 >
                     Decrement
+                </button>
+                <button
+                    aria-label="Decrement value"
+                    onClick={() => dispatch(incrementIfOdd())}
+                >
+                    Increment if odd
                 </button>
             </div>
         </div>

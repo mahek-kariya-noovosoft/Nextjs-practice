@@ -31,10 +31,10 @@ const GridExample = () => {
     ]);
 
     const colDefs: ColDef[] = [
-        {field: "make", flex: 2},
-        {field: "model", flex: 1},
-        {field: "price", flex: 1},
-        {field: "electric", flex: 1}
+        {field: "make", flex: 1, sortable: true},
+        {field: "model", flex: 1, editable: true},
+        {field: "price", flex: 1, filter: true},
+        {field: "electric", flex: 1, editable: true}
     ];
 
 

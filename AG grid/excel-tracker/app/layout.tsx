@@ -1,12 +1,17 @@
-import {ReactNode} from "react";
+import "./global.css";
 
-export default function basicLayout({children}: { children: ReactNode }) {
+export default function RootLayout({
+                                       children,
+                                   }: {
+    children: React.ReactNode;
+}) {
     return (
-        
-        <html>
+        <html lang="en">
         <body>
-        {children}
+        <div className="app-shell">
+            {children}
+        </div>
         </body>
         </html>
-    )
+    );
 }

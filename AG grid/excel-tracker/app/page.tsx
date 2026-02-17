@@ -6,6 +6,7 @@ import {useState} from "react";
 import {DailyTasksRowType} from "@/types/TableTypes";
 import {ColDef} from "ag-grid-community";
 import "@/lib/agGrid";
+import "./global.css";
 
 
 export default function Home() {
@@ -18,7 +19,18 @@ export default function Home() {
         {field: "date", flex: 1},
         {field: "topic", flex: 1},
         {field: "taskType", flex: 1},
-        {field: "status", flex: 1},
+        {
+            field: "status",
+            flex: 1,
+            cellClassRules: {
+                "status-done": p => p.value === "Done",
+                "status-progress": p => p.value === "In Progress",
+                "status-incomplete": p => p.value === "Incomplete",
+                "status-notstarted": p => p.value === "Not Started",
+            },
+
+
+        },
         {field: "time", flex: 1},
         {field: "notes", flex: 1},
     ];
@@ -27,8 +39,8 @@ export default function Home() {
     console.log(colDefs);
 
     return (
-        <div className="p-6">
-            <h1 className="text-xl font-semibold">
+        <div className="page">
+            <h1 className="title">
                 My Exel-like Tracker
             </h1>
             <div className="ag-theme-quartz w-full h-[500px]">
@@ -36,9 +48,13 @@ export default function Home() {
                     rowData={rowData}
                     columnDefs={colDefs}
                     domLayout="autoHeight"
+                    enableCellTextSelection={true}
+                    defaultColDef={{
+                        editable: true,
+                        resizable: true,
+                    }}
                 />
             </div>
-
         </div>
     );
 }

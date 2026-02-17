@@ -1,0 +1,80 @@
+body {
+    font-family: system-ui, sans-serif;
+    background: #f7f8fa;
+}
+
+.page {
+    padding: 24px;
+}
+
+.title {
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -0.6px;
+    background: linear-gradient(90deg, #111827, #4b5563);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+.grid-box {
+    height: 500px;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 6px;
+}
+
+.ag-theme-quartz .status-done {
+    background-color: #d1fae5 !important;
+    color: #065f46;
+    font-weight: 600;
+}
+
+.ag-theme-quartz .status-progress {
+    background-color: #fef3c7 !important;
+    color: #92400e;
+    font-weight: 600;
+}
+
+.ag-theme-quartz .status-incomplete {
+    background-color: #fee2e2 !important;
+    color: #991b1b;
+    font-weight: 600;
+}
+
+.ag-theme-quartz .status-notstarted {
+    background-color: #e5e7eb !important;
+    color: #374151;
+    font-weight: 600;
+}
+
+
+.ag-row .status-done,
+.ag-row .status-progress,
+.ag-row .status-incomplete,
+.ag-row .status-notstarted {
+    border-radius: 6px;
+    padding: 4px;
+}
+
+.ag-theme-quartz {
+    --ag-borders: solid 1px #e5e7eb;
+    --ag-row-border-color: #e5e7eb;
+    --ag-header-column-separator-display: block;
+    --ag-header-column-separator-color: #e5e7eb;
+}
+
+.ag-theme-quartz .ag-cell {
+    border-right: 1px solid #e5e7eb;
+}
+
+.ag-theme-quartz .ag-row {
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.ag-theme-quartz .ag-row:hover {
+    background-color: #f9fafb;
+}
+
+
+
